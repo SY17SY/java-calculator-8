@@ -5,9 +5,20 @@ public class StringCalculator {
         if (input == null || input.isEmpty()) {
             return 0;
         }
-        if (!input.contains(",") && !input.contains("\n")) {
-            return Integer.parseInt(input);
+
+        String[] tokens = split(input);
+        int sum = 0;
+        for (String token : tokens) {
+            int num = Integer.parseInt(token);
+            sum += num;
         }
-        throw new UnsupportedOperationException("미구현");
+        return sum;
+    }
+
+    private static String[] split(String input) {
+        if (input.contains(",") || input.contains(":")) {
+            return input.split("[,:]");
+        }
+        return new String[]{input};
     }
 }
