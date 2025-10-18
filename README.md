@@ -27,6 +27,7 @@
 입력값이 음수를 포함하는 경우 IllegalArgumentException을 던지기
 (throwsOnNegativeNumbers)
 입력값이 숫자가 아닌 값을 포함하는 경우 IllegalArgumentException을 던지기
+(throwsOnNonNumericToken)
 입력값의 구분자 형식이 잘못된 경우 IllegalArgumentException을 던지기
 
 ### 7. 출력
