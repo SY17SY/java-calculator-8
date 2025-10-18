@@ -11,11 +11,11 @@ class ApplicationTest extends NsTest {
     @Test
     void emptyString_returnZero() {
         assertSimpleTest(() -> {
-            run("");
+            run("\n");
             assertThat(output()).contains("결과 : 0");
         });
     }
-    
+
     @Test
     void 커스텀_구분자_사용() {
         assertSimpleTest(() -> {
