@@ -35,7 +35,7 @@ class ApplicationTest extends NsTest {
     @Test
     void customDelimiter_basic() {
         assertSimpleTest(() -> {
-            run("//;\n1;2");
+            run("//;\\n1;2");
             assertThat(output()).contains("결과 : 3");
         });
     }
