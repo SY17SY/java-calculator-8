@@ -18,13 +18,14 @@
 
 입력값이 “//”으로 시작하고 “\n”을 포함하는 경우, 입력값을 //와 \n 사이의 구분자로 분리하고 그 합을 반환하기
 
-### 5. 커스텀 구분자 처리 심화
+### 5. 커스텀 구분자 처리 심화 (customDelimiter_mixedWithDefaultDelimiter)
 
 입력값에 커스텀 구분자와 콤마(,), 콜론(:)이 혼재되는 경우, 입력값을 모든 구분자로 분리하고 그 합을 반환하기
 
-### 6. 예외 처리
+### 6. 예외 처리 (throwsOn~)
 
 입력값이 음수를 포함하는 경우 IllegalArgumentException을 던지기
+(throwsOnNegativeNumbers)
 입력값이 숫자가 아닌 값을 포함하는 경우 IllegalArgumentException을 던지기
 입력값의 구분자 형식이 잘못된 경우 IllegalArgumentException을 던지기
 
