@@ -61,10 +61,22 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void throwsOnInvalidDelimiterSyntax() {
+    void throwsOnMissingDelimiter() {
+        assertSimpleTest(
+                () -> assertThatThrownBy(() -> runException("//\\n1,2")).isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void throwsOnNonDoubleBackslash() {
+        assertSimpleTest(
+                () -> assertThatThrownBy(() -> runException("//;\n1;2")).isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void trailingDelimiter_sumNumbers() {
         assertSimpleTest(() -> {
-            assertThatThrownBy(() -> runException("//\\n1,2")).isInstanceOf(IllegalArgumentException.class);
-            assertThatThrownBy(() -> runException("//;\n1;2")).isInstanceOf(IllegalArgumentException.class);
             run("//;\\n1;2;");
             assertThat(output()).contains("결과 : 3");
         });
