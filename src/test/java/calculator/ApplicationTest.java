@@ -9,6 +9,14 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class ApplicationTest extends NsTest {
     @Test
+    void emptyString_returnZero() {
+        assertSimpleTest(() -> {
+            run("");
+            assertThat(output()).contains("결과 : 0");
+        });
+    }
+    
+    @Test
     void 커스텀_구분자_사용() {
         assertSimpleTest(() -> {
             run("//;\n1;2");
@@ -18,10 +26,9 @@ class ApplicationTest extends NsTest {
 
     @Test
     void 예외_테스트() {
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("-1,2,3"))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
+        assertSimpleTest(() -> {
+            assertThatThrownBy(() -> runException("-1,2,3")).isInstanceOf(IllegalArgumentException.class);
+        });
     }
 
     @Override
