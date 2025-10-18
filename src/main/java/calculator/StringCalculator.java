@@ -1,7 +1,5 @@
 package calculator;
 
-import java.util.regex.Pattern;
-
 public class StringCalculator {
     private static final String DEFAULT_DELIMITER = ",:";
 
@@ -17,6 +15,9 @@ public class StringCalculator {
                 continue;
             }
             int num = Integer.parseInt(token);
+            if (num < 0) {
+                throw new IllegalArgumentException("음수는 허용되지 않습니다: " + num);
+            }
             sum += num;
         }
         return sum;
