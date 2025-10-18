@@ -60,6 +60,15 @@ class ApplicationTest extends NsTest {
                 () -> assertThatThrownBy(() -> runException("1,a:3")).isInstanceOf(IllegalArgumentException.class));
     }
 
+    @Test
+    void throwsOnInvalidDelimiterSyntax() {
+        assertSimpleTest(() -> {
+            assertThatThrownBy(() -> runException("//\\n1,2")).isInstanceOf(IllegalArgumentException.class);
+            assertThatThrownBy(() -> runException("//;\\n1;2;")).isInstanceOf(IllegalArgumentException.class);
+            assertThatThrownBy(() -> runException("//;\n1;2")).isInstanceOf(IllegalArgumentException.class);
+        });
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
