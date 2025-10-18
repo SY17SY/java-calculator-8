@@ -19,8 +19,8 @@ class ApplicationTest extends NsTest {
     @Test
     void singleNumber_returnsItself() {
         assertSimpleTest(() -> {
-            run("3");
-            assertThat(output()).contains("결과 : 3");
+            run("1");
+            assertThat(output()).contains("결과 : 1");
         });
     }
 
@@ -35,8 +35,16 @@ class ApplicationTest extends NsTest {
     @Test
     void customDelimiter_basic() {
         assertSimpleTest(() -> {
-            run("//;\\n1;2");
-            assertThat(output()).contains("결과 : 3");
+            run("//;\\n1;2;3;4");
+            assertThat(output()).contains("결과 : 10");
+        });
+    }
+
+    @Test
+    void customDelimiter_mixedWithDefaultDelimiter() {
+        assertSimpleTest(() -> {
+            run("//|\\n1|2,3:4:5");
+            assertThat(output()).contains("결과 : 15");
         });
     }
 
