@@ -64,8 +64,9 @@ class ApplicationTest extends NsTest {
     void throwsOnInvalidDelimiterSyntax() {
         assertSimpleTest(() -> {
             assertThatThrownBy(() -> runException("//\\n1,2")).isInstanceOf(IllegalArgumentException.class);
-            assertThatThrownBy(() -> runException("//;\\n1;2;")).isInstanceOf(IllegalArgumentException.class);
             assertThatThrownBy(() -> runException("//;\n1;2")).isInstanceOf(IllegalArgumentException.class);
+            run("//;\\n1;2;");
+            assertThat(output()).contains("결과 : 3");
         });
     }
 

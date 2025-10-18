@@ -28,11 +28,17 @@ public class StringCalculator {
     }
 
     private static String[] split(String input) {
+        if (input.startsWith("//") && !input.contains("\\n")) {
+            throw new IllegalArgumentException("커스텀 구분자 작성 형식이 올바르지 않습니다");
+        }
         if (input.startsWith("//") && input.contains("\\n")) {
             int idx = input.indexOf("\\n");
             String body = input.substring(idx + 2);
 
             String customDelimiter = input.substring(2, idx);
+            if (customDelimiter.isEmpty()) {
+                throw new IllegalArgumentException("빈 커스텀 구분자는 허용되지 않습니다.");
+            }
             String delimiter = "[" + DEFAULT_DELIMITER + customDelimiter + "]";
             return body.split(delimiter);
         }
