@@ -49,6 +49,14 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    void customDelimiter_escapeEnter() {
+        assertSimpleTest(() -> {
+            run("//;\n1;2");
+            assertThat(output()).contains("결과 : 3");
+        });
+    }
+
+    @Test
     void throwsOnNegativeNumbers() {
         assertSimpleTest(
                 () -> assertThatThrownBy(() -> runException("-1,2,3")).isInstanceOf(IllegalArgumentException.class));
@@ -64,13 +72,6 @@ class ApplicationTest extends NsTest {
     void throwsOnMissingDelimiter() {
         assertSimpleTest(
                 () -> assertThatThrownBy(() -> runException("//\\n1,2")).isInstanceOf(IllegalArgumentException.class)
-        );
-    }
-
-    @Test
-    void throwsOnNonDoubleBackslash() {
-        assertSimpleTest(
-                () -> assertThatThrownBy(() -> runException("//;\n1;2")).isInstanceOf(IllegalArgumentException.class)
         );
     }
 
