@@ -18,9 +18,12 @@
 
 입력값이 “//”으로 시작하고 “\n”을 포함하는 경우, 입력값을 //와 \n 사이의 구분자로 분리하고 그 합을 반환하기
 
-### 5. 커스텀 구분자 처리 심화 (customDelimiter_mixedWithDefaultDelimiter)
+### 5. 커스텀 구분자 처리 심화
 
 입력값에 커스텀 구분자와 콤마(,), 콜론(:)이 혼재되는 경우, 입력값을 모든 구분자로 분리하고 그 합을 반환하기
+(customDelimiter_mixedWithDefaultDelimiter)
+커스텀 구분자를 입력할 때 "\n"이 아닌 Enter 키를 입력할 때, 입력값을 구분자로 분리하고 그 합을 반환하기
+(customDelimiter_escapeEnter)
 
 ### 6. 예외 처리 (throwsOn~)
 
