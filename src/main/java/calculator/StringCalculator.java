@@ -37,7 +37,7 @@ public class StringCalculator {
             validateNumNegative(num);
             return num;
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("숫자가 아닌 값은 허용되지 않습니다: " + token);
+            throw new IllegalArgumentException("숫자가 아닌 값이나 int 범위를 초과하는 수는 허용되지 않습니다: " + token);
         }
     }
 
@@ -50,7 +50,7 @@ public class StringCalculator {
     private static int sum(List<Integer> nums) {
         int sum = 0;
         for (int num : nums) {
-            sum += num;
+            sum = Math.addExact(sum, num);
         }
         return sum;
     }
