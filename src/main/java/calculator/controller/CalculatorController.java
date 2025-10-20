@@ -18,7 +18,7 @@ public class CalculatorController {
 
     public void runCalculator() throws IOException {
         String stringInputs = inputView.input();
-//        int result = calculator.add(stringInputs);
-//        outputView.printResult(result);
+        int result = calculator.add(stringInputs);
+        outputView.printResult(result);
     }
 }
