@@ -34,10 +34,15 @@
 입력값의 구분자 형식이 잘못된 경우 IllegalArgumentException을 던지기
 (throwsOnInvalidDelimiterSyntax)
 
-### 7. 출력
+### 7. 큰 수 처리
+
+입력값이 int 범위를 넘는 큰 수를 포함하는 경우 IllegalArgumentException을 던지기
+합계를 구하는 과정에서 int 범위를 넘지 않도록 하기
+
+### 8. 출력
 
 반환한 값을 “결과 : {합계}” 형식으로 출력하기
 
-### 8. 입력 처리
+### 9. 입력 처리
 
 콘솔을 통해 입력값을 받는다.
