@@ -3,7 +3,6 @@ package calculator.controller;
 import calculator.domain.Calculator;
 import calculator.view.InputView;
 import calculator.view.OutputView;
-import java.io.IOException;
 
 public class CalculatorController {
     private final InputView inputView;
@@ -16,7 +15,7 @@ public class CalculatorController {
         this.calculator = calculator;
     }
 
-    public void runCalculator() throws IOException {
+    public void runCalculator() {
         String stringInputs = inputView.input();
         int result = calculator.add(stringInputs);
         outputView.printResult(result);

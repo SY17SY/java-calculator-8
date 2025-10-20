@@ -6,10 +6,9 @@ import calculator.domain.DelimiterGenerator;
 import calculator.domain.NumberSeparator;
 import calculator.view.InputView;
 import calculator.view.OutputView;
-import java.io.IOException;
 
 public class Application {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         DelimiterGenerator delimiterGenerator = new DelimiterGenerator();
         NumberSeparator numberSeparator = new NumberSeparator(delimiterGenerator);
         Calculator calculator = new Calculator(numberSeparator);
