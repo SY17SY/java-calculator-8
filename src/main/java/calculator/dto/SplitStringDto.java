@@ -1,4 +1,4 @@
 package calculator.dto;
 
-public class SplitStringDto {
+public record SplitStringDto(String delimiter, String targetString) {
 }
