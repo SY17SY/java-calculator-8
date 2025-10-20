@@ -83,6 +83,20 @@ class ApplicationTest extends NsTest {
         });
     }
 
+    @Test
+    void largeNum() {
+        assertSimpleTest(() -> {
+            run("//;\\n12341234;23411234:23");
+            assertThat(output()).contains("결과 : 35752491");
+        });
+    }
+
+    @Test
+    void throwsOnOverflowNum() {
+        assertSimpleTest(() -> assertThatThrownBy(() -> runException("//;\\n123412341234;12341234")).isInstanceOf(
+                IllegalArgumentException.class));
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
