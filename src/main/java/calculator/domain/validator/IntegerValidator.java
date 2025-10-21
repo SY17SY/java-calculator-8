@@ -1,6 +1,6 @@
-package calculator.domain;
+package calculator.domain.validator;
 
-public class IntegerValidator {
+public final class IntegerValidator {
     public static int validate(String value) {
         String s = trimOrNull(value);
         if (s == null) {

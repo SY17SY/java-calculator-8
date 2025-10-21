@@ -1,5 +1,6 @@
 package calculator.domain;
 
+import calculator.domain.validator.IntegerValidator;
 import java.util.Arrays;
 import java.util.List;
 
