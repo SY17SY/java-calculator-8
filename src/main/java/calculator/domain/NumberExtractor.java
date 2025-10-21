@@ -1,6 +1,5 @@
 package calculator.domain;
 
-import calculator.dto.SplitStringDto;
 import java.util.Arrays;
 import java.util.List;
 
@@ -19,7 +18,7 @@ public class NumberExtractor {
     }
 
     private String[] splitString(String input) {
-        SplitStringDto delimiterAndTarget = delimiterParser.parse(input);
+        TokenizedInput delimiterAndTarget = delimiterParser.parse(input);
         String delimiter = delimiterAndTarget.delimiter();
         String targetString = delimiterAndTarget.targetString();
 

@@ -1,6 +1,5 @@
 package calculator.domain;
 
-import calculator.dto.SplitStringDto;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -8,9 +7,9 @@ public class DelimiterParser {
     private static final String DEFAULT_DELIMITER = ",|:";
     private static final Pattern CUSTOM_DELIMITER_PATTERN = Pattern.compile("//(.)\\\\n(.*)");
 
-    public SplitStringDto parse(String input) {
+    public TokenizedInput parse(String input) {
         if (input == null || input.isBlank()) {
-            return new SplitStringDto(DEFAULT_DELIMITER, "");
+            return new TokenizedInput(DEFAULT_DELIMITER, "");
         }
 
         Matcher matcher = CUSTOM_DELIMITER_PATTERN.matcher(input);
@@ -18,9 +17,9 @@ public class DelimiterParser {
             String customDelimiter = matcher.group(1);
             String delimiters = DEFAULT_DELIMITER + "|" + customDelimiter;
             String targetString = matcher.group(2);
-            return new SplitStringDto(delimiters, targetString);
+            return new TokenizedInput(delimiters, targetString);
         }
 
-        return new SplitStringDto(DEFAULT_DELIMITER, input);
+        return new TokenizedInput(DEFAULT_DELIMITER, input);
     }
 }
