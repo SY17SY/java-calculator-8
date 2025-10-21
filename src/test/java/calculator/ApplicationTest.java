@@ -123,6 +123,7 @@ class ApplicationTest extends NsTest {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("-1,2,3"))
                         .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessage("음수는 허용되지 않습니다.")
         );
     }
 
@@ -132,6 +133,7 @@ class ApplicationTest extends NsTest {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("//-\\n1-2qwe--3"))
                         .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessage("형식이 올바르지 않습니다.")
         );
     }
 
@@ -141,6 +143,7 @@ class ApplicationTest extends NsTest {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("1,2,3000000000,3"))
                         .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessage("Integer 범위를 벗어나는 수는 허용되지 않습니다.")
         );
     }
 
@@ -150,6 +153,7 @@ class ApplicationTest extends NsTest {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("1,2,2147483646,3"))
                         .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessage("Integer 범위를 벗어나는 수는 허용되지 않습니다.")
         );
     }
 
@@ -159,6 +163,7 @@ class ApplicationTest extends NsTest {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("//\\n1;2;3"))
                         .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessage("빈 구분자는 허용되지 않습니다.")
         );
     }
 
@@ -168,6 +173,7 @@ class ApplicationTest extends NsTest {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("//\\n1;2;3"))
                         .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessage("2개 이상의 문자로 이루어진 구분자는 허용되지 않습니다.")
         );
     }
 
