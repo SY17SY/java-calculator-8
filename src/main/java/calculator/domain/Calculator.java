@@ -11,10 +11,11 @@ public class Calculator {
 
     public int add(String stringInput) {
         List<Integer> intInputs = numberExtractor.extract(stringInput);
-        int sum = 0;
+        long longSum = 0;
         for (int num : intInputs) {
-            sum += num;
+            longSum += num;
         }
-        return sum;
+        IntegerValidator.integerOverflow(longSum);
+        return (int) longSum;
     }
 }
