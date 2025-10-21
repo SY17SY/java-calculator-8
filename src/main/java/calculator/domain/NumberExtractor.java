@@ -13,7 +13,7 @@ public class NumberExtractor {
     public List<Integer> extract(String stringInput) {
         String[] stringInputs = splitString(stringInput);
         return Arrays.stream(stringInputs)
-                .mapToInt(Integer::parseInt)
+                .mapToInt(IntegerValidator::validate)
                 .boxed().toList();
     }
 
