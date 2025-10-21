@@ -64,6 +64,15 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    @DisplayName("기본, 커스텀 구분자 혼합 사용")
+    void basicAndCustomDelimiter_sumNumbers() {
+        assertSimpleTest(() -> {
+            run("//;\\n1,2;3:4");
+            assertThat(output()).contains("결과 : 10");
+        });
+    }
+
+    @Test
     @DisplayName("커스텀 구분자 사용 (Enter)")
     void customDelimiter_enter() {
         assertSimpleTest(() -> {
