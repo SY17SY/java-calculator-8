@@ -171,7 +171,7 @@ class ApplicationTest extends NsTest {
     @DisplayName("예외 문자 개수 2개 이상 구분자")
     void throwsOnOverflowDelimiter() {
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("//\\n1;2;3"))
+                assertThatThrownBy(() -> runException("//;;\\n1;2;3"))
                         .isInstanceOf(IllegalArgumentException.class)
                         .hasMessage("2개 이상의 문자로 이루어진 구분자는 허용되지 않습니다.")
         );
