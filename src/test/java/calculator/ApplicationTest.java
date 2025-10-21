@@ -118,6 +118,24 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    @DisplayName("하이픈 구분자 사용")
+    void hyphenDelimiter() {
+        assertSimpleTest(() -> {
+            run("//-\\n1-2-3");
+            assertThat(output()).contains("결과 : 6");
+        });
+    }
+
+    @Test
+    @DisplayName("연속된 하이픈 구분자 사용 - 음수로 보지 않고 연속된 구분자 사용으로 판단")
+    void doubleHyphenDelimiter() {
+        assertSimpleTest(() -> {
+            run("//-\\n1--2-3");
+            assertThat(output()).contains("결과 : 6");
+        });
+    }
+
+    @Test
     @DisplayName("예외 음수 입력")
     void throwsOnNegativeNumber() {
         assertSimpleTest(() ->
