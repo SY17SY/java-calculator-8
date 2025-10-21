@@ -16,7 +16,8 @@ public class CalculatorController {
     }
 
     public void runCalculator() {
-//        String stringInputs = consoleInput.input();
+        consoleOutput.readExpression();
+        String stringInputs = consoleInput.input();
 //        int result = calculator.add(stringInputs);
 //        consoleOutput.printResult(result);
     }
