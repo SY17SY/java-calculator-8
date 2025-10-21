@@ -6,4 +6,8 @@ public class ConsoleOutput {
     public void readExpression() {
         System.out.println(INPUT_PROMPT);
     }
+
+    public void printResult(int result) {
+        System.out.println("결과 : " + result);
+    }
 }
