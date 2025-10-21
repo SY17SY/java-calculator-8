@@ -15,7 +15,7 @@ public class Calculator {
         for (int num : intInputs) {
             longSum += num;
         }
-        IntegerValidator.integerOverflow(longSum);
+        IntegerValidator.requireIntRange(longSum);
         return (int) longSum;
     }
 }
